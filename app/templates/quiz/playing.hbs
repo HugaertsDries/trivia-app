@@ -4,5 +4,5 @@
     <b>{{if this.category this.category "any"}}</b>
 </p>
 {{#each @model.results as |trivia|}}
-<TriviaFact @trivia={{trivia}} />
+<TriviaQuestion @trivia={{trivia}} />
 {{/each}}

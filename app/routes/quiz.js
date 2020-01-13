@@ -5,19 +5,19 @@ export default class QuizRoute extends Route {
         let difficulties = [
             {
                 id: "",
-                name: "Any Difficulty"
+                content: "Any Difficulty"
             },
             {
                 id: "easy",
-                name: "Easy"
+                content: "Easy"
             },
             {
                 id: "medium",
-                name: "Medium"
+                content: "Medium"
             },
             {
                 id: "hard",
-                name: "Hard"
+                content: "Hard"
             },
         ];
 
@@ -26,10 +26,18 @@ export default class QuizRoute extends Route {
                 return await response.json();
             });
 
+        categories = categories.map(category => {
+            return {
+                id: category.id,
+                content: category.name
+            }
+        });
+
         categories.unshift({
             id: "",
-            name: "Any Category"
+            content: "Any Category"
         });
+
 
         return { categories, difficulties };
 
