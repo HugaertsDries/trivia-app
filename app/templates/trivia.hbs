@@ -1,5 +1,5 @@
 <div>
-    {{#each @model as |trivia|}}
+    {{#each @model.results as |trivia|}}
     <TriviaFact @trivia={{trivia}} />
     {{/each}}
 </div>
