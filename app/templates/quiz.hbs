@@ -16,5 +16,10 @@
         {{/each}}
     </select>
     <br>
-    <button type="submit" {{on "click" this.startQuiz}}>Start</button>
+    <LinkTo type="button" @route="quiz">reset</LinkTo>
+    <LinkTo type="button" @route="quiz.playing" @query={{hash difficulty=this.difficulty category=this.category}}>Start
+    </LinkTo>
+</div>
+<div>
+    {{outlet}}
 </div>

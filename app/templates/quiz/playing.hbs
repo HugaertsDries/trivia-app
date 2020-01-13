@@ -1,0 +1,8 @@
+<p>Playing quiz of difficulty
+    <b>{{if this.difficulty this.difficulty "any"}}</b>
+    and
+    <b>{{if this.category this.category "any"}}</b>
+</p>
+{{#each @model.results as |trivia|}}
+<TriviaFact @trivia={{trivia}} />
+{{/each}}
