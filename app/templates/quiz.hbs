@@ -1,10 +1,13 @@
 <h2>Test your knowledge</h2>
 <div>
-    <label for="trivia_difficulty">Select Difficulty: </label>
-    <Select id="trivia_difficulty" @values={{@model.difficulties}} {{on "change" this.updateDifficulty}} />
-    <br>
-    <label for="trivia_category">Select Category: </label>
-    <Select id="trivia_category" @values={{@model.categories}} {{on "change" this.updateCategory}} />
+    <p>
+        <label for="trivia_difficulty">Select Difficulty: </label>
+        <Select id="trivia_difficulty" @values={{@model.difficulties}} {{on "change" this.updateDifficulty}} />
+    </p>
+    <p>
+        <label for="trivia_category">Select Category: </label>
+        <Select id="trivia_category" @values={{@model.categories}} {{on "change" this.updateCategory}} />
+    </p>
     <br>
     <LinkTo type="button" @route="quiz">reset</LinkTo>
     <LinkTo type="button" @route="quiz.playing" @query={{hash difficulty=this.difficulty category=this.category}}>Start
