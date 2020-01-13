@@ -11,7 +11,7 @@
             {{on "change" this.updateCategory}} />
     </p>
     <br>
-    <LinkTo type="button" @route="quiz">reset</LinkTo>
+    <LinkTo type="button" @route="quiz">Reset</LinkTo>
     <LinkTo type="button" @route="quiz.playing" @query={{hash difficulty=this.difficulty category=this.category}}>Start
     </LinkTo>
 </div>

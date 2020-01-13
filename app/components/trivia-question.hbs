@@ -1,4 +1,7 @@
 <div ...attributes>
     <p>{{@trivia.question}}</p>
-    <Select @placeholder="Select an Answer" @values={{this.answers}} />
+    <Select @placeholder="Select an Answer" @values={{this.answers}} {{on 'change' this.onChange}} />
+    {{#if this.userAnswer}}
+    <span>{{if this.isCorrect "Correct" "Nope" }}</span>
+    {{/if}}
 </div>

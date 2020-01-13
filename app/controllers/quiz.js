@@ -14,12 +14,4 @@ export default class QuizController extends Controller {
     @action updateCategory(event) {
         this.category = event.target.value;
     }
-
-    @action startQuiz() {
-        this.transitionToRoute('quiz.playing')
-    }
-
-    @action resetQuiz() {
-        this.transitionToRoute('quiz');
-    }
 }

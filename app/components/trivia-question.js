@@ -1,15 +1,17 @@
 import Ember from 'ember';
 import { shuffle } from 'trivia-app/helpers/shuffle';
 import { computed } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
+import { action } from "@ember/object";
 
 export default class TriviaQuestionComponent extends Ember.Component {
 
-    // @tracked trivia = {
-    //     correct_answer: "correct",
-    //     incorrect_answers: [
-    //         "incorrect"
-    //     ]
-    // }
+    @tracked userAnswer = '';
+
+    @computed('userAnswer')
+    get isCorrect() {
+        return this.userAnswer == this.trivia.correct_answer;
+    }
 
     @computed
     get answers() {
@@ -19,9 +21,15 @@ export default class TriviaQuestionComponent extends Ember.Component {
         shuffle(answers);
         return answers.map((answer, index) => {
             return {
-                id: index,
+                id: answer,
                 content: answer
             }
         });
     }
+
+    @action onChange(event) {
+        this.userAnswer = event.target.value;
+    }
+
+
 }
