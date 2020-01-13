@@ -1,6 +1,6 @@
 <select ...attributes>
     {{#if @placeholder}}
-    <option value="" disabled selected>@placeholder</option>
+    <option value="" disabled selected>{{@placeholder}}</option>
     {{/if}}
     {{#each @values as |value|}}
     <option value={{value.id}}>{{value.content}}</option>
