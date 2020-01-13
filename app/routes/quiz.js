@@ -4,10 +4,6 @@ export default class QuizRoute extends Route {
     async model() {
         let difficulties = [
             {
-                id: "",
-                content: "Any Difficulty"
-            },
-            {
                 id: "easy",
                 content: "Easy"
             },
@@ -32,12 +28,6 @@ export default class QuizRoute extends Route {
                 content: category.name
             }
         });
-
-        categories.unshift({
-            id: "",
-            content: "Any Category"
-        });
-
 
         return { categories, difficulties };
 

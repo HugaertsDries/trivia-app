@@ -2,11 +2,13 @@
 <div>
     <p>
         <label for="trivia_difficulty">Select Difficulty: </label>
-        <Select id="trivia_difficulty" @values={{@model.difficulties}} {{on "change" this.updateDifficulty}} />
+        <Select id="trivia_difficulty" @placeholder="Any Difficulty" @values={{@model.difficulties}}
+            {{on "change" this.updateDifficulty}} />
     </p>
     <p>
         <label for="trivia_category">Select Category: </label>
-        <Select id="trivia_category" @values={{@model.categories}} {{on "change" this.updateCategory}} />
+        <Select id="trivia_category" @placeholder="Any Category" @values={{@model.categories}}
+            {{on "change" this.updateCategory}} />
     </p>
     <br>
     <LinkTo type="button" @route="quiz">reset</LinkTo>
