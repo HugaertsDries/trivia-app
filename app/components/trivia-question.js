@@ -1,10 +1,10 @@
-import Ember from 'ember';
+import Component from '@ember/component';
 import { shuffle } from 'trivia-app/helpers/shuffle';
 import { computed } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { action } from "@ember/object";
 
-export default class TriviaQuestionComponent extends Ember.Component {
+export default class TriviaQuestionComponent extends Component {
 
     @tracked userAnswer = '';
 
@@ -19,7 +19,7 @@ export default class TriviaQuestionComponent extends Ember.Component {
         let answers = incorrect_answers;
         answers.push(correct_answer);
         shuffle(answers);
-        return answers.map((answer, index) => {
+        return answers.map((answer) => {
             return {
                 id: answer,
                 content: answer
