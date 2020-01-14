@@ -27,6 +27,22 @@ export default class TriviaQuestionComponent extends Component {
         });
     }
 
+    @computed
+    get diffColor() {
+        let { difficulty } = this.trivia;
+
+        switch (difficulty) {
+            case "easy":
+                return "badge green white-text";
+            case "medium":
+                return "badge orange white-text";
+            case "hard":
+                return "badge red white-text";
+            default:
+                return "badge yellow black-text";
+        }
+    }
+
     @action onChange(event) {
         this.userAnswer = event.target.value;
     }

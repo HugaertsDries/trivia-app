@@ -1,7 +1,7 @@
 <div class={{if this.userAnswer (if this.isCorrect "card green accent-1" "card red accent-1") "card"}}>
     <div class="card-content">
-        <span class="badge green white-text">{{@trivia.difficulty}}</span>
-        <span class="badge grey white-text">{{@trivia.category}}</span>
+        <span class={{this.diffColor}}>{{@trivia.difficulty}}</span>
+        <span class="badge blue white-text">{{@trivia.category}}</span>
         <span class="card-title">{{@trivia.question}}</span>
     </div>
     <div class="card-action">
