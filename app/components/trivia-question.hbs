@@ -1,7 +1,10 @@
-<div ...attributes>
-    <p>{{@trivia.question}}</p>
-    <Select @placeholder="Select an Answer" @values={{this.answers}} {{on 'change' this.onChange}} />
-    {{#if this.userAnswer}}
-    <span>{{if this.isCorrect "Correct" "Nope" }}</span>
-    {{/if}}
+<div class={{if this.userAnswer (if this.isCorrect "card green accent-1" "card red accent-1") "card"}}>
+    <div class="card-content">
+        <span class="badge green white-text">{{@trivia.difficulty}}</span>
+        <span class="badge grey white-text">{{@trivia.category}}</span>
+        <span class="card-title">{{@trivia.question}}</span>
+    </div>
+    <div class="card-action">
+        <Select @placeholder="Select an Answer" @values={{this.answers}} {{on 'change' this.onChange}} />
+    </div>
 </div>
