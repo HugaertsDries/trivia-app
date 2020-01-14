@@ -1,8 +1,12 @@
-<h3>Playing quiz of difficulty
-    <b>{{if this.difficulty this.difficulty "any"}}</b>
-    and category
+<h4>Playing <b>{{if this.difficulty this.difficulty ""}}</b> quiz of
+    category
     <b>{{if this.category this.category "any"}}</b>
-</h3>
-{{#each @model.results as |trivia|}}
-<TriviaQuestion @trivia={{trivia}} />
-{{/each}}
+</h4>
+<div class="progress">
+    <div class="determinate" style={{this.progress}}></div>
+</div>
+<div class="questions">
+    {{#each @model.results as |trivia index|}}
+    <TriviaQuestion @trivia={{trivia}} @onAnswer={{fn this.answer index}} />
+    {{/each}}
+</div>

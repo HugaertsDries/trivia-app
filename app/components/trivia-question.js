@@ -45,6 +45,7 @@ export default class TriviaQuestionComponent extends Component {
 
     @action onChange(event) {
         this.userAnswer = event.target.value;
+        this.onAnswer(event.target.value);
     }
 
 
