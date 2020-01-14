@@ -1,2 +1,26 @@
-<h1>Get smarter every day!</h1>
-{{outlet}}
+<header>
+    <nav>
+        <div class="nav-wrapper">
+            <LinkTo class="brand-logo right" @route="trivia">
+                <i class="large material-icons">school</i>
+            </LinkTo>
+            <ul id="nav-mobile" class="left hide-on-med-and-down">
+                <li>
+                    <LinkTo type="button" @route="quiz">Test yourself</LinkTo>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<main>
+    <div class="container">
+        {{outlet}}
+    </div>
+</main>
+<footer class="page-footer">
+    <div class="footer-copyright">
+        <div class="container center">
+            Made with <i class="material-icons">whatshot</i> in Bierbeek
+        </div>
+    </div>
+</footer>

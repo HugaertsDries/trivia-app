@@ -3,9 +3,11 @@ import fetch from 'fetch';
 
 export default class TriviaRoute extends Route {
     async model() {
-        return await fetch('https://opentdb.com/api.php?amount=10')
+        let response = await fetch('https://opentdb.com/api.php?amount=10&type=boolean')
             .then(async function (response) {
                 return await response.json();
             });
+
+        return response.results.find(trivia => trivia.correct_answer === "True")
     }
 }

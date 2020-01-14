@@ -1,1 +1,10 @@
-<p>{{@trivia.question}} -- <q>{{@trivia.correct_answer}}</q></p>
+<div class="card">
+    <div class="card-content">
+        <span class="badge green white-text">{{@trivia.difficulty}}</span>
+        <span class="badge grey white-text">{{@trivia.category}}</span>
+        <span class="card-title">{{@trivia.question}}</span>
+    </div>
+    <div class="card-action">
+        {{yield}}
+    </div>
+</div>
