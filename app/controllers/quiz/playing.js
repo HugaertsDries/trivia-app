@@ -9,12 +9,13 @@ export default class PlayingController extends Controller {
     @tracked difficulty = "";
     @tracked category = "";
 
-    @service('quiz-game') service;
+    @service('quiz-game') quiz;
+    @service('trivia-fetch') triviaService;
 
     @action
     answer(trivia, answer) {
-        this.service.answer(trivia, answer);
-        if (this.service.isCompleted()) {
+        this.quiz.answer(trivia, answer);
+        if (this.quiz.isCompleted()) {
             console.log('--- quiz was completed ---');
             this.transitionToRoute('quiz.result');
         }
