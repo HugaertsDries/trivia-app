@@ -1,21 +1,24 @@
 import Controller from '@ember/controller';
 import { tracked } from '@glimmer/tracking';
-import { computed } from '@ember/object';
+import { action } from "@ember/object";
+import { inject as service } from '@ember/service';
 
 export default class PlayingController extends Controller {
     queryParams = [{ difficulty: { refreshModel: true } }, { category: { refreshModel: true } }];
 
-    @tracked results = [];
+    @tracked difficulty = "";
+    @tracked category = "";
 
+    @service('quiz-game') service;
 
-    @computed('results')
-    get progress() {
-        return `width: ${this.results.length * 10}%`;
-    }
+    // init() {
+    //     this.init();
+    //     alert("Starting quiz");
+    //     // service.start(this.model);
+    // }
 
-    answer(trivia, content) {
-        // TODO Remove
-        alert(trivia.question + " -- " + content);
-        //  this.results[index] = content;
+    @action
+    answer(trivia, answer) {
+        this.service.answer(trivia, answer);
     }
 }

@@ -2,10 +2,17 @@ import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
 
 export default class QuizPlayingRoute extends Route {
-    @service('trivia-fetch') service;
+    @service('quiz-game') gameService;
+    @service('trivia-fetch') fetchService;
 
     async model(queryParams) {
         let { difficulty, category } = queryParams;
-        return await this.service.getTrivia(difficulty, category, "", 10);
+        let quiz = await this.fetchService.getTrivia(difficulty, category, "", 10);
+        this.gameService.start(quiz);
+        return quiz;
+    }
+
+    deactivate() {
+        this.gameService.stop();
     }
 }
