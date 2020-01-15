@@ -6,7 +6,7 @@
     <div class="determinate"></div>
 </div>
 <div class="questions">
-    {{#each @model.results as |trivia|}}
+    {{#each @model as |trivia|}}
     <TriviaQuestion @trivia={{trivia}} @onAnswer={{fn this.answer trivia}} />
     {{/each}}
 </div>

@@ -28,7 +28,13 @@ export default class TriviaFetchService extends Service {
             .then(async function (response) {
                 return await response.json();
             });
-        return response.trivia_categories;
+
+        return response.trivia_categories.map(category => {
+            return {
+                id: category.id,
+                content: category.name
+            };
+        });
     }
 
     async getDifficulties() {

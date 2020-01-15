@@ -1,10 +1,11 @@
 import Route from '@ember/routing/route';
+import { inject as service } from '@ember/service';
 
 export default class QuizPlayingRoute extends Route {
+    @service('trivia-fetch') service;
+
     async model(queryParams) {
-        return await fetch(`https://opentdb.com/api.php?amount=10&difficulty=${queryParams.difficulty}&category=${queryParams.category}`)
-            .then(async function (response) {
-                return await response.json();
-            });
+        let { difficulty, category } = queryParams;
+        return await this.service.getTrivia(difficulty, category, "", 10);
     }
 }
