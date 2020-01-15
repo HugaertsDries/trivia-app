@@ -5,6 +5,7 @@
         <span class="card-title">{{@trivia.question}}</span>
     </div>
     <div class="card-action">
-        <Select @placeholder="Select an Answer" @values={{this.answers}} {{on 'change' this.onChange}} />
+        <Select disabled={{this.isDisabled}} @placeholder="Select an Answer" @values={{this.answers}}
+            {{on 'change' this.onChange}} />
     </div>
 </div>

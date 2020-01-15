@@ -9,6 +9,11 @@ export default class TriviaQuestionComponent extends Component {
     @tracked userAnswer = '';
 
     @computed('userAnswer')
+    get isDisabled() {
+        return this.userAnswer;
+    }
+
+    @computed('userAnswer')
     get isCorrect() {
         return this.userAnswer == this.trivia.correct_answer;
     }
