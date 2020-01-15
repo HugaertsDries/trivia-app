@@ -10,7 +10,6 @@ export default class QuizController extends Controller {
         this.difficulty = event.target.value;
     }
 
-
     @action updateCategory(event) {
         this.category = event.target.value;
     }

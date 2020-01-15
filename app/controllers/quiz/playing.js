@@ -13,9 +13,9 @@ export default class PlayingController extends Controller {
         return `width: ${this.results.length * 10}%`;
     }
 
-    answer(index, content) {
+    answer(trivia, content) {
         // TODO Remove
-        alert(content);
-        this.results[index] = content;
+        alert(trivia.question + " -- " + content);
+        //  this.results[index] = content;
     }
 }
