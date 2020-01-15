@@ -1,0 +1,6 @@
+<h3>Result Page</h3>
+<div class="questions">
+    {{#each @model as |answer|}}
+    <p>{{answer.question}} -- {{answer.user_answer}}</p>
+    {{/each}}
+</div>

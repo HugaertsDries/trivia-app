@@ -10,5 +10,6 @@ Router.map(function() {
   this.route('trivia');
   this.route('quiz', function() {
     this.route('playing');
+    this.route('result');
   });
 });

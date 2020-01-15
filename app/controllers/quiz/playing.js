@@ -11,14 +11,12 @@ export default class PlayingController extends Controller {
 
     @service('quiz-game') service;
 
-    // init() {
-    //     this.init();
-    //     alert("Starting quiz");
-    //     // service.start(this.model);
-    // }
-
     @action
     answer(trivia, answer) {
         this.service.answer(trivia, answer);
+        if (this.service.isCompleted()) {
+            console.log('--- quiz was completed ---');
+            this.transitionToRoute('quiz.result');
+        }
     }
 }

@@ -10,13 +10,12 @@ export default class QuizGameService extends Service {
     // TODO Compute progress
 
     isCompleted() {
-        return (this.allQuestionsAnswered && !this.inProgress)
+        let isComplete = this.allQuestionsAnswered()
+        return isComplete;
     }
 
     allQuestionsAnswered() {
-        return this.quiz.every(trivia => {
-            return trivia.user_answer;
-        })
+        return this.quiz.every(trivia => trivia.user_answer);
     }
 
     start(quiz) {
@@ -25,7 +24,6 @@ export default class QuizGameService extends Service {
     }
 
     answer(trivia, answer) {
-        alert(trivia.question + " -- " + answer);
         trivia.user_answer = answer;
     }
 
