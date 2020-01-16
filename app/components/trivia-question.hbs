@@ -2,7 +2,7 @@
     <div class="card-content">
         <span class={{this.diffColor}}>{{@trivia.difficulty}}</span>
         <span class="badge blue white-text">{{@trivia.category}}</span>
-        <span class="card-title">{{@trivia.question}}</span>
+        <span class="card-title">{{hs @trivia.question}}</span>
     </div>
     <div class="card-action">
         <Select disabled={{this.isDisabled}} @placeholder="Select an Answer" @values={{this.answers}}
