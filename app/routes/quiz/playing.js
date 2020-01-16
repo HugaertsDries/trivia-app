@@ -7,7 +7,7 @@ export default class QuizPlayingRoute extends Route {
 
     async model(queryParams) {
         let { difficulty, category } = queryParams;
-        let quiz = await this.fetchService.getTrivia(difficulty, category, "", 10);
+        let quiz = await this.fetchService.getTrivia(difficulty, category, "", 5);
         this.gameService.start(quiz);
         return quiz;
     }

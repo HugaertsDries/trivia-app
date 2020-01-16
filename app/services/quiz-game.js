@@ -14,6 +14,12 @@ export default class QuizGameService extends Service {
         return isComplete;
     }
 
+    getScore() {
+        if (this.isCompleted) {
+            return this.quiz.filter(trivia => trivia.correct_answer == trivia.user_answer).length;
+        }
+    }
+
     allQuestionsAnswered() {
         return this.quiz.every(trivia => trivia.user_answer);
     }

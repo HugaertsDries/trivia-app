@@ -16,7 +16,7 @@ export default class TriviaFetchService extends Service {
     // }
 
     async getTrivia(difficulty, category, type, amount) {
-        let response = await fetch(`https://opentdb.com/api.php?difficulty=${difficulty}&category=${category}&amount=${amount}&type=${type}`)
+        let response = await fetch(`https://opentdb.com/api.php?&difficulty=${difficulty}&category=${category}&amount=${amount}&type=${type}`)
             .then(async function (response) {
                 return await response.json();
             });

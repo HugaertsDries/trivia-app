@@ -1,13 +1,16 @@
 <header>
     <nav>
-        <div class="nav-wrapper light-green lighten-1">
-            <LinkTo class="brand-logo right" @route="trivia">
+        <div class="nav-wrapper">
+            <LinkTo class="brand-logo center" @route="trivia">
                 <i class="large material-icons">school</i>
             </LinkTo>
-            <ul id="nav-mobile" class="left hide-on-med-and-down">
-                <li>
-                    <LinkTo type="button" @route="quiz">Test yourself</LinkTo>
-                </li>
+            <ul id="nav-mobile" class="left">
+                <LinkTo @route="trivia" @tagName="li">
+                    <a href="">Trivia</a>
+                </LinkTo>
+                <LinkTo @route="quiz" @tagName="li">
+                    <a href="">Quiz</a>
+                </LinkTo>
             </ul>
         </div>
     </nav>
@@ -17,7 +20,7 @@
         {{outlet}}
     </div>
 </main>
-<footer class="page-footer light-green lighten-1">
+<footer class="page-footer">
     <div class="footer-copyright">
         <div class="container center">
             Made with <i class="material-icons">favorite</i> in Bierbeek

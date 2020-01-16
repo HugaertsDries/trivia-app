@@ -5,7 +5,10 @@ export default class QuizResultRoute extends Route {
     @service('quiz-game') service;
 
     model() {
-        return this.service.quiz;
+        const quiz = this.service.quiz;
+        const score = this.service.getScore();
+
+        return { quiz, score }
     }
 
     activate() {
