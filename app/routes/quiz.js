@@ -6,7 +6,7 @@ export default class QuizRoute extends Route {
 
     async model() {
         let difficulties = await this.service.getDifficulties();
-        let categories = await this.service.getCategories();
+        let categories = await this.store.findAll('category');
         return { categories, difficulties };
     }
 }

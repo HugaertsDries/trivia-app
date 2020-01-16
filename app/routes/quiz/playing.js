@@ -1,4 +1,5 @@
 import Route from '@ember/routing/route';
+import { inject as service } from '@ember/service';
 
 export default class QuizPlayingRoute extends Route {
     @service('quiz-game') gameService;
@@ -13,7 +14,6 @@ export default class QuizPlayingRoute extends Route {
             return results.toArray();
         });
         this.gameService.start(quiz);
-        debugger
         return quiz;
     }
 
