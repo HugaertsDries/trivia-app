@@ -52,5 +52,8 @@
   },
   "ember": {
     "edition": "octane"
+  },
+  "dependencies": {
+    "uuid": "^3.3.3"
   }
 }
