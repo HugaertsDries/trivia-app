@@ -1,8 +1,8 @@
 import Route from '@ember/routing/route';
-import { inject as service } from '@ember/service';
+// import { inject as service } from '@ember/service';
 
 export default class TriviaRoute extends Route {
-    @service('trivia-fetch') service;
+    // @service('trivia-fetch') service;
 
     async model() {
         // let trivia = await this.service.getTrivia("", "", "boolean", 10);
