@@ -1,6 +1,6 @@
 import Controller from '@ember/controller';
 import { tracked } from '@glimmer/tracking';
-import { action } from "@ember/object";
+import { action, computed } from "@ember/object";
 import { inject as service } from '@ember/service';
 
 export default class PlayingController extends Controller {
@@ -9,6 +9,11 @@ export default class PlayingController extends Controller {
     @tracked difficulty = "";
     @tracked category = "";
 
+    @computed('category')
+    get categoryName() {
+        return this.store.peekRecord('category', this.category).get('content');
+    }
+
     @service('quiz-game') quiz;
     @service('trivia-fetch') triviaService;
 
@@ -16,7 +21,6 @@ export default class PlayingController extends Controller {
     answer(trivia, answer) {
         this.quiz.answer(trivia, answer);
         if (this.quiz.isCompleted()) {
-            console.log('--- quiz was completed ---');
             this.transitionToRoute('quiz.result');
         }
     }

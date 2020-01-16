@@ -6,15 +6,15 @@ export default class QuizPlayingRoute extends Route {
 
     async model(queryParams) {
         let { difficulty, category } = queryParams;
-        let quiz = await this.store.query('trivia', {
+        let questions = await this.store.query('trivia', {
             amount: 5,
             difficulty,
             category
         }).then(function (results) {
             return results.toArray();
         });
-        this.gameService.start(quiz);
-        return quiz;
+        this.gameService.start(questions);
+        return questions;
     }
 
     deactivate() {
