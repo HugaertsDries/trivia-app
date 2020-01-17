@@ -15,7 +15,6 @@ export default class PlayingController extends Controller {
     }
 
     @service('quiz-game') quiz;
-    @service('trivia-fetch') triviaService;
 
     @action
     answer(trivia, answer) {
