@@ -4,23 +4,22 @@ import { action, computed } from "@ember/object";
 import { inject as service } from '@ember/service';
 
 export default class PlayingController extends Controller {
-    queryParams = [{ difficulty: { refreshModel: true } }, { category: { refreshModel: true } }];
+  queryParams = ['difficulty', 'category'];
 
-    @tracked difficulty = "";
-    @tracked category = "";
+  @service('quiz-game') quiz;
 
-    @computed('category')
-    get categoryName() {
-        return this.store.peekRecord('category', this.category).get('content');
+  @tracked difficulty = "";
+  @tracked category = "";
+
+  get categoryName() {
+    return this.store.peekRecord('category', this.category).get('content');
+  }
+
+  @action
+  answer(trivia, answer) {
+    this.quiz.answer(trivia, answer);
+    if (this.quiz.isCompleted) {
+      this.transitionToRoute('quiz.result');
     }
-
-    @service('quiz-game') quiz;
-
-    @action
-    answer(trivia, answer) {
-        this.quiz.answer(trivia, answer);
-        if (this.quiz.isCompleted()) {
-            this.transitionToRoute('quiz.result');
-        }
-    }
+  }
 }

@@ -1,22 +1,21 @@
-<h4>Quiz Results: <span class="right">{{@model.score}}/{{@model.quiz.length}}</span></h4>
+<h4>Quiz Results: <span class="right">{{@model.score}}/{{@model.questions.length}}</span></h4>
 <ul class="collection with-header">
-    <li class="collection-header">
-        <h4>Your answers</h4>
-    </li>
-    {{#each @model.quiz as |trivia|}}
-    <li class="collection-item avatar">
-        {{#if (eq trivia.correct_answer trivia.user_answer )}}
-        <i class="material-icons circle green">done</i>
-        {{else}}
-        <i class="material-icons circle red">clear</i>
-        {{/if}}
-
-        <span class="title"><b>{{hs trivia.question}}</b></span>
-        <p>
-            Correct answer: {{hs trivia.correct_answer}}
-            <br>
-            Your answer: {{hs trivia.user_answer}}
-        </p>
-    </li>
-    {{/each}}
+  <li class="collection-header">
+    <h4>Your answers</h4>
+  </li>
+  {{#each @model.questions as |trivia|}}
+  <li class="collection-item avatar">
+    {{#if (eq trivia.correct_answer trivia.user_answer )}}
+    <i class="material-icons circle green">done</i>
+    {{else}}
+    <i class="material-icons circle red">clear</i>
+    {{/if}}
+    <span class="title"><b>{{hs trivia.question}}</b></span>
+    <p>
+      Correct answer: {{hs trivia.correct_answer}}
+      <br>
+      Your answer: {{hs trivia.user_answer}}
+    </p>
+  </li>
+  {{/each}}
 </ul>

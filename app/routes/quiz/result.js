@@ -2,18 +2,15 @@ import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
 
 export default class QuizResultRoute extends Route {
-    @service('quiz-game') service;
+  @service('quiz-game') game;
 
-    model() {
-        const quiz = this.service.quiz;
-        const score = this.service.getScore();
+  model() {
+    return this.game;
+  }
 
-        return { quiz, score }
+  activate() {
+    if (this.game.questions.length == 0) {
+      this.transitionTo("quiz");
     }
-
-    activate() {
-        if (this.service.quiz.length == 0) {
-            this.transitionTo("quiz");
-        }
-    }
+  }
 }

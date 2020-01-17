@@ -4,16 +4,16 @@ import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 
 export default class QuizController extends Controller {
-    @service('quiz-game') service;
+  @service('quiz-game') game;
 
-    @tracked difficulty = "";
-    @tracked category = "";
+  @tracked difficulty = "";
+  @tracked category = "";
 
-    @action updateDifficulty(event) {
-        this.difficulty = event.target.value;
-    }
+  @action updateDifficulty(event) {
+    this.difficulty = event.target.value;
+  }
 
-    @action updateCategory(event) {
-        this.category = event.target.value;
-    }
+  @action updateCategory(event) {
+    this.category = event.target.value;
+  }
 }

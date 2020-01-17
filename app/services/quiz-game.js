@@ -1,40 +1,63 @@
 import Service from '@ember/service';
 
 import { tracked } from '@glimmer/tracking';
+import { action } from "@ember/object";
 
 export default class QuizGameService extends Service {
-    quiz = [];
 
-    @tracked inProgress = false;
+  @tracked
+  questions = [];
 
-    // TODO Compute progress
+  get inProgress() {
+    return this.questions.length != 0 && this.progress != 100;
+  }
 
-    isCompleted() {
-        let isComplete = this.allQuestionsAnswered()
-        return isComplete;
-    }
+  /**
+   * returns the progress of the quiz in percentage
+   */
+  get progress() {
+    let amountAnswered = this.questions.filter(trivia => trivia.user_answer).length;
+    let totalQuestions = this.questions.length;
 
-    getScore() {
-        if (this.isCompleted) {
-            return this.quiz.filter(trivia => trivia.correct_answer == trivia.user_answer).length;
-        }
-    }
+    return (amountAnswered / totalQuestions) * 100;
+  }
 
-    allQuestionsAnswered() {
-        return this.quiz.every(trivia => trivia.user_answer);
-    }
+  /**
+   * returns if the quiz has been completed
+   */
+  get isCompleted() {
+    return this.allQuestionsAnswered && !this.inProgress;
+  }
 
-    start(quiz) {
-        this.inProgress = true
-        this.quiz = quiz;
-    }
+  /**
+   * return the amount of correctly answered questions by the user
+   */
+  get score() {
+    return this.questions.filter(trivia => trivia.correct_answer == trivia.user_answer).length;
+  }
 
-    answer(trivia, answer) {
-        trivia.user_answer = answer;
-    }
+  /**
+   * TODO REMOVE
+   * returns if all questions have been answered
+   */
+  get allQuestionsAnswered() {
+    return this.questions.every(trivia => trivia.user_answer != undefined);
+  }
 
-    stop() {
-        this.inProgress = false;
-    }
+
+  @action
+  start(questions) {
+    this.questions = questions;
+  }
+
+  @action
+  answer(trivia, answer) {
+    trivia.user_answer = answer;
+  }
+
+  @action
+  reset() {
+    this.questions = [];
+  }
 
 }
