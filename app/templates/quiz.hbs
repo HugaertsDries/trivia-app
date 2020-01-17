@@ -14,12 +14,12 @@
   <div class="divider"></div>
   <br>
   {{#if this.game.inProgress}}
-  <LinkTo type="button" class="waves-effect waves-light btn" @route="quiz" {{on 'click' this.game.reset}}>
+  <LinkTo type="button" class="waves-effect waves-light btn center-align" @route="quiz">
     <i class="material-icons">refresh</i>
   </LinkTo>
   {{else}}
-  <LinkTo type="button" class="waves-effect waves-light btn" disabled={{this.service.inProgress}} @route="quiz.playing"
-    @query={{hash difficulty=this.difficulty category=this.category}}>
+  <LinkTo type="button" class="waves-effect waves-light btn center-align" disabled={{this.service.inProgress}}
+    @route="quiz.playing" @query={{hash difficulty=this.difficulty category=this.category}}>
     <b>start</b>
   </LinkTo>
   {{/if}}
